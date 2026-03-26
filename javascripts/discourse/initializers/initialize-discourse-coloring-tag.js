@@ -26,7 +26,8 @@ export default {
         let siteSettings = helperContext().siteSettings;
       
         params = params || {};
-        const visibleName = escapeExpression(tag);
+        const tagString = typeof tag === "string" ? tag : (tag && tag.name) || String(tag);
+        const visibleName = escapeExpression(tagString);
         tag = visibleName.toLowerCase();
         const index = tags.indexOf(tag);
         var backgroundColor;
